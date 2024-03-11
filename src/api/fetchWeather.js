@@ -14,3 +14,28 @@ export const fetchWeather = async (query) => {
 
     return data;
 }
+
+export const getCity = async (query) => {
+    const { data } = await axios.get('http://api.openweathermap.org/geo/1.0/direct', {
+        params: {
+            q: query,
+            limit: 5,
+            APPID: API_KEY,
+        }
+    });
+
+    return data;
+}
+
+export const getWeatherFromCity = async (lat, lon) => {
+    const { data } = await axios.get(URL, {
+        params: {
+            lat: lat,
+            lon: lon,
+            units: 'metric',
+            APPID: API_KEY,
+        }
+    });
+
+    return data;
+}
