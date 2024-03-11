@@ -16,7 +16,7 @@ export const fetchWeather = async (query) => {
 }
 
 export const getCity = async (query) => {
-    const { data } = await axios.get('http://api.openweathermap.org/geo/1.0/direct', {
+    const { data } = await axios.get('https://api.openweathermap.org/geo/1.0/direct', {
         params: {
             q: query,
             limit: 5,
