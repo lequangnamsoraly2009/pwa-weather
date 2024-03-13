@@ -23,6 +23,7 @@
             .then((reg) => console.log("Success", reg.scope))
             .catch((err) => console.log("Failed", err))
         })
+        Notification.requestPermission();
       }
     </script>
   </body>
