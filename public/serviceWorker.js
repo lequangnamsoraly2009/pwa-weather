@@ -57,7 +57,6 @@ self.addEventListener("push", (e) => {
 })
 
 // Notificatin Click
-
 self.addEventListener('notificationclick', (e) => {
     let payload = e.notification.data;
     e.notification.close();
