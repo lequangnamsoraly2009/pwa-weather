@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { fetchWeather, getCity, getWeatherFromCity } from './api/fetchWeather';
 import './App.css';
-import firebase from './firebase';
 
 const App = () => {
     const [query, setQuery] = useState('');
     const [weather, setWeather] = useState({});
     const [listCity, setListCity] = useState([]);
 
-    useEffect(() => {
-      const msg = firebase.messaging();
-      msg.requestPermission().then(() => {
-        return msg.getToken();
-      }).then((data) => {
-        console.log("data",data)
-      })
-    }, [])
-    
     const search = async (e) => {
         if(e.key === 'Enter') {
             setListCity([]);
