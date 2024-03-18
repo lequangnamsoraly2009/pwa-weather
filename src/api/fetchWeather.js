@@ -39,3 +39,16 @@ export const getWeatherFromCity = async (lat, lon) => {
 
     return data;
 }
+
+export const getHourlyForecastFromCity = async (lat, lon) => {
+    const { data } = await axios.get("https://api.openweathermap.org/data/2.5/forecast/daily", {
+        params: {
+            lat: lat,
+            lon: lon,
+            cnt: 1,
+            APPID: API_KEY,
+        }
+    });
+
+    return data;
+}

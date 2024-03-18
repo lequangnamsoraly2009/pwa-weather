@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { fetchWeather, getCity, getWeatherFromCity } from './api/fetchWeather';
+import { fetchWeather, getCity, getHourlyForecastFromCity, getWeatherFromCity } from './api/fetchWeather';
 import './App.css';
 
 const App = () => {
@@ -31,6 +31,9 @@ const App = () => {
     }
 
     const onClickSearchCityByLocation = async (lat, lon) => {
+      await getHourlyForecastFromCity(15.6,213.2).then((data) => {
+        console.log("test", data)
+      })
       await getWeatherFromCity(lat, lon).then((data) => {
         setWeather(data);
         setListCity([]);
@@ -42,6 +45,11 @@ const App = () => {
     }
 
     return (
+      <div>
+        <div>
+          <button>Search Temperature</button>
+          <button>Search Hourly Forecast</button>
+        </div>
         <div className="main-container">
             <input type="text" className="search" onClick={() => {
               setWeather({});
@@ -75,6 +83,7 @@ const App = () => {
                 </div>
             )}
         </div>
+      </div>
     );
 }
 
