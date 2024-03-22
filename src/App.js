@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
-import { useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useCounter } from './store/useCounter';
 
 
 const App = () => {
-  // const { data, isPending, isLoading, error } = useQuery({
-  //   queryKey: ['mainKey', { type: 'testUniqueQuery' }],
-  //   queryFn: () =>
-  //     fetch('https://api.github.com/repos/TanStack/query').then((res) =>
-  //       res.json(),
-  //     ),
-  // })
+  const { data, isPending, isLoading, error } = useQuery({
+    queryKey: ['mainKey', { type: 'testUniqueQuery' }],
+    queryFn: () =>
+      fetch('https://api.github.com/repos/TanStack/query').then((res) =>
+        res.json(),
+      ),
+  })
 
   // Change query client default
   const testChangeQueryClient = "test change here";
